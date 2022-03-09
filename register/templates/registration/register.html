@@ -1,16 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}Register{% endblock  %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "css/register-login-forms.css" %}">    {% endblock %}
 {% block content %}
-<h1>Register</h1>
+    <div class="form-group  p-2 m-4">
+        <form method = "POST">
+            <h1 class="pb-4 ps-2 d-flex justify-content-center">Zarejestruj się</h1>
+            {% csrf_token %}
 
-<div class="form-group">
-    <form action="" method = "POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button class="btn btn-info">
-            Register
-        </button>
-    </form>
-</div>
+            <div class="row m-2 p-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" placeholder="Nazwa użytkownika">
+                </div>
+            </div>
 
+            <div class="row m-2 p-2">
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Podaj hasło">
+                </div>
+            </div>
+
+            <div class="row m-2 p-2">
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password2" placeholder="Potwierdź hasło">
+                </div>
+            </div>
+
+            <div class="row m-2 p-2">
+                <div class="form-group d-flex justify-content-center">
+                    <button class="btn btn-large btn-outline-secondary w-50">Zarejestruj się!</button> 
+                </div>  
+            </div>   
+        </form>
+    </div>
 {% endblock  %}
