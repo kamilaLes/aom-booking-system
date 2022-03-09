@@ -1,0 +1,38 @@
+{%load static%}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-2 mb-3">
+    <a href="#" class="navbar-brand ">
+        <img width="50" height="50" src="{% static "images/logo.jpg"%}" alt="Logo-AOM" class="d-inline-block align-top">
+    </a> 
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto me-auto-sm p-1">
+
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Moje zapisy</a>
+                </li>
+            {% endif %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Kalendarz zajęć</a>
+            </li>     
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
+                    Panel logowania</a>
+                <ul class="dropdown-menu">
+                    {% if user.is_authenticated %}
+                        <li><a class="dropdown-item" href="#">Mój profil</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout'%}">Wyloguj się</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{% url 'register'%}">Zarejestruj się</a></li>
+                    <li><a class="dropdown-item" href="{% url 'login'%}">Zaloguj się</a></li>
+
+                    {% endif %}
+                </ul>
+            </li>       
+        </ul>
+    </div>
+</nav>

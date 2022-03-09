@@ -1,0 +1,20 @@
+.dark-blue {
+    background-color: rgb(31, 31, 59);
+}
+
+@media only screen and (min-width:850px) {
+    .bg-img {
+        filter: blur(3px);
+        min-height: 100vh;
+    }
+}
+
+.content {
+    position: absolute;
+    background-color: rgb(255, 255, 255, 0.6);
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    top: 20%;
+    left: 15%;
+    right: 15%;
+    z-index: 1;
+}
